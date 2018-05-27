@@ -6,7 +6,7 @@ React JS Progress / Loading bar
 React loading component with progress bar, percentage and time estimated for the operation to be completed.
 
 How it looks:
-
+![alt text](https://github.com/jciccio/react-loading-progress/blob/master/loading.png)
 
 
 It has two options the compact mode, that shows the progress bar, percentage and time left in a single line, and the full mode which outputs in different lines how much items has processed, the current percentage, the progress bar and the estimated time to complete the current operation.
