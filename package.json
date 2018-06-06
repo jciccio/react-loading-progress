@@ -1,7 +1,7 @@
 {
   "name": "react-js-loading-progress-bar",
-  "version": "0.0.1",
-  "description": "React JS loading progress component",
+  "version": "0.1.3",
+  "description": "React JS loading progress component, shows estimated time left (if several requests need to be made) and progress bar with percentage.",
   "main": "build/index.js",
   "peerDependencies": {
     "react": "^16.0.0"
@@ -42,7 +42,11 @@
     "loading",
     "progress bar",
     "time left",
-    "estimated time"
+    "estimated time",
+    "progress meter",
+    "loading indicator",
+    "progress",
+    "bar"
   ],
   "license": "MIT",
   "homepage": "https://github.com/jciccio/react-loading-progress"
