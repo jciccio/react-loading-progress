@@ -27,11 +27,15 @@ Import `LoadingProgress` in your react component.
 import LoadingProgress from 'react-js-loading-progress-bar';
 ```
 
-You'll need to pass as props:
-* `total` - (int) The total items you are going to process.
-* `current` - (int) The current item being processed
-* `active` - (boolean) If you want to activate the loading component
-* `showCompact` - If you want the single line version (full by default) 
+Props available:
+
+| Name        | Type            | Mandatory | Description  
+| ------------- |:-------------:| -----:|-----:|
+| total      | integer | Y |The total items you are going to process |
+| active      | boolean   | Y   |   If you want to activate the loading component |
+| current | integer     | Y|   The current item being processed |
+| showCompact | present?   |N  |   If you want the single line version (full by default) |
+
 
 For example:
 ```javascript
