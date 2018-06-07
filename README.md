@@ -48,4 +48,5 @@ For example:
 ```
 
 # License 
-MIT
+
+Licensed under the MIT License.
