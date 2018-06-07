@@ -1,4 +1,5 @@
-# file-uploader
+# react-loading-progress
+
 React JS Progress / Loading bar
 
 # Description
