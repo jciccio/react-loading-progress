@@ -1,4 +1,4 @@
-# react-loading-progress
+# React-loading-progress
 
 React JS Progress / Loading bar
 
@@ -31,7 +31,7 @@ import LoadingProgress from 'react-js-loading-progress-bar';
 Props available:
 
 | Name        | Type            | Mandatory | Description  
-| ------------- |:-------------:| -----:|-----:|
+| ------------- |:-------------:| -----:|:-----|
 | total      | integer | Y |The total items you are going to process |
 | active      | boolean   | Y   |   If you want to activate the loading component |
 | current | integer     | Y|   The current item being processed |
