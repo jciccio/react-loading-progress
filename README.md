@@ -1,3 +1,8 @@
+![npm](https://img.shields.io/npm/dt/react-js-loading-progress-bar.svg)
+![npm](https://img.shields.io/npm/v/react-js-loading-progress-bar.svg)
+![npm](https://img.shields.io/npm/l/react-js-loading-progress-bar.svg)
+
+
 # React-loading-progress
 
 React JS Progress / Loading bar
