@@ -1,6 +1,6 @@
 {
   "name": "react-js-loading-progress-bar",
-  "version": "0.1.3",
+  "version": "0.1.6",
   "description": "React JS loading progress component, shows estimated time left (if several requests need to be made) and progress bar with percentage.",
   "main": "build/index.js",
   "peerDependencies": {

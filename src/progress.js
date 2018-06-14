@@ -21,7 +21,7 @@ class Progress extends Component {
     if (nextProps.current !== prevState.currentItem) {
       // check if item was updated
       var newState = {};
-      if (nextProps.current === 1) {
+      if (nextProps.current === 1 || prevState.currentTime === null) {
         newState = {
           startTime: Date.now(),
           currentTime: Date.now(),
@@ -29,6 +29,7 @@ class Progress extends Component {
           totalItems: nextProps.total
         };
       } else if (nextProps.current > 1) {
+        let difference = nextProps.current - prevState.currentItem;
         let delta = Math.abs(Date.now() - prevState.currentTime);
         let timeElapsed = prevState.timeElapsed + delta;
         let averageTimePerItem = timeElapsed / 1000 / nextProps.current;
@@ -68,7 +69,7 @@ class Progress extends Component {
           timeElapsed: timeElapsed
         };
       }
-      return newState; 
+      return newState; // saves new state
     }
     return null;
   }
@@ -137,16 +138,18 @@ class Progress extends Component {
     }
   }
 
-  renderSingleLine(){
+  renderSingleLine() {
     if (this.props.showSingleLine) {
       return (
         <div>
           <progress max="100" value={this.state.percentageNumber} />
-          <label>{this.state.percentage} (Est. Time remaining: {this.state.estimatedLeft})</label>
+          <label>
+            {this.state.percentage} (Est. Time remaining:{" "}
+            {this.state.estimatedLeft})
+          </label>
         </div>
       );
-    }
-    else {
+    } else {
       return null;
     }
   }
