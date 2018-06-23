@@ -2,6 +2,12 @@ import React, { Component } from "react";
 
 import "./progress.css";
 
+/**
+ * Progress Bar Component
+ *
+ * @version 0.1.8
+ * @author [Jose Antonio Ciccio](https://github.com/jciccio)
+ */
 class Progress extends Component {
   constructor(props) {
     super(props);
