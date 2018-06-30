@@ -88,18 +88,14 @@ class Progress extends Component {
       else{
         return (
           <div className="progressBar">
-            <label>
-              Processing your requests, please wait... {this.state.percentage}
-            </label>
+            {this.renderCustomTitle()}
+            {this.renderProcessingRequest()}
             <br />
-            <label>
-              {this.props.current} out of {this.props.total} processed
-            </label>
+            {this.renderQtyProcessed()}
             <br />
-            <label>Time remaining: {this.state.estimatedLeft}</label>
-            <br />
-            <progress max="100" value={this.state.percentageNumber} />{" "}
-            {this.state.percentage}
+            {this.renderTimeRemaining()}
+            
+            {this.renderProgressBar()}
           </div>
         );
       }
@@ -108,32 +104,61 @@ class Progress extends Component {
     }
   }
 
-  renderCompactMode() {
-    return (
-      <div>
-        <progress max="100" value={this.state.percentageNumber} />
-        <label>{this.state.percentage}</label>
-      </div>
-    );
+  renderQtyProcessed(){
+     if (this.props.hideQtyProcessed !== undefined) {
+      return (
+          <label>
+            {this.props.current} out of {this.props.total} processed
+          </label>
+        );
+    } else {
+      return null;
+    }
   }
 
   renderTimeRemaining() {
-    if (this.props.showTimeRemaining) {
+    if (this.props.hideTimeRemaining !== undefined) {
       return <label>Time remaining: {this.state.estimatedLeft}</label>;
     } else {
-      return <div />;
+      return null;
+    }
+  }
+
+  renderProgressBar() {
+    if (this.props.hideProgressBar === undefined) {
+      if (this.props.useSpinner !== undefined){
+        return(<div className="loader"></div>)
+      }
+      else{
+        return (
+          <div>
+            <progress max="100" value={this.state.percentageNumber} />
+            <label>{this.state.percentage}</label>
+          </div>
+        );
+      }
+    } else {
+      return null;
     }
   }
 
   renderProcessingRequest() {
-    if (this.props.showProcessingRequest) {
+    if (this.props.hideProcessingRequest === undefined) {
       return (
         <label>
           Processing your requests, please wait... {this.state.percentage}
         </label>
       );
     } else {
-      return <div />;
+      return null;
+    }
+  }
+
+  renderTimeRemaining() {
+    if (this.props.hideTimeRemaining === undefined) {
+      return <label>Time remaining: {this.state.estimatedLeft}</label>;
+    } else {
+      return null;
     }
   }
 
@@ -141,7 +166,7 @@ class Progress extends Component {
     if (this.props.showCustomTitle) {
       return <label>{this.state.title}</label>;
     } else {
-      return <div />;
+      return null;
     }
   }
 

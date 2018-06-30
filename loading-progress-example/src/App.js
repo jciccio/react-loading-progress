@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import LoadingProgress from 'react-js-loading-progress-bar';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -50,6 +49,18 @@ class App extends Component {
               
             />
           </div>
+
+        <h1> Throbber mode: </h1>
+        <div>
+          <LoadingProgress
+            useSpinner
+            active={true}
+            total={this.state.total}
+            current={this.state.current}
+            
+            
+          />
+        </div>
 
       </div>
     );

@@ -77,56 +77,60 @@ class Progress extends Component {
   render() {
     if (this.props.active) {
       return (
-        <div className="progressBar">
-          <label>
-            Processing your requests, please wait... {this.state.percentage}
-          </label>
+        <div className="progressBar"><label>HOLA!!!</label>
+          {this.renderCustomTitle()}
+          {this.renderProcessingRequest()}
           <br />
           <label>
             {this.props.current} out of {this.props.total} processed
           </label>
           <br />
-          <label>Time remaining: {this.state.estimatedLeft}</label>
+          {this.renderTimeRemaining()}
           <br />
           <progress max="100" value={this.state.percentageNumber} />{" "}
           {this.state.percentage}
         </div>
       );
     } else {
-      return <div />;
+      return null;
     }
   }
 
   renderProgressBar() {
     if (this.props.showProgressBar) {
-      return (
-        <div>
-          <progress max="100" value={this.state.percentageNumber} />
-          <label>{this.state.percentage}</label>
-        </div>
-      );
+      if (this.props.useSpinner !== undefined){
+        return(<div className="loader"></div>)
+      }
+      else{
+        return (
+          <div>
+            <progress max="100" value={this.state.percentageNumber} />
+            <label>{this.state.percentage}</label>
+          </div>
+        );
+      }
     } else {
-      return <div />;
+      return null;
     }
   }
 
   renderTimeRemaining() {
-    if (this.props.showTimeRemaining) {
+    if (this.props.hideTimeRemaining !== undefined) {
       return <label>Time remaining: {this.state.estimatedLeft}</label>;
     } else {
-      return <div />;
+      return null;
     }
   }
 
   renderProcessingRequest() {
-    if (this.props.showProcessingRequest) {
+    if (this.props.hideProcessingRequest !== undefined) {
       return (
         <label>
           Processing your requests, please wait... {this.state.percentage}
         </label>
       );
     } else {
-      return <div />;
+      return null;
     }
   }
 
@@ -134,7 +138,7 @@ class Progress extends Component {
     if (this.props.showCustomTitle) {
       return <label>{this.state.title}</label>;
     } else {
-      return <div />;
+      return null;
     }
   }
 

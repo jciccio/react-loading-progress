@@ -41,7 +41,11 @@ Props available:
 | active      | boolean   | Y   |   If you want to activate the loading component |
 | current | integer     | Y|   The current item being processed |
 | showCompact | present?   |N  |   If you want the single line version (full by default) |
-
+| title | String   |N  |   Render custom title |
+| hideProcessingRequest | present?   |N  |   Render processing request in full mode |
+| hideTimeRemaining | present?   |N  |   Render time remaining in full mode |
+| hideProgressBar | present?   |N  |   Hide entirely the progress bar or spinner |
+| hideQtyProcessed | present?   |N  |  Hide the amount of items processed |
 
 For example:
 ```javascript

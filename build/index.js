@@ -150,6 +150,12 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+/**
+ * Progress Bar Component
+ *
+ * @version 0.1.8
+ * @author [Jose Antonio Ciccio](https://github.com/jciccio)
+ */
 var Progress = function (_Component) {
   _inherits(Progress, _Component);
 
@@ -182,12 +188,8 @@ var Progress = function (_Component) {
           return _react2.default.createElement(
             "div",
             { className: "progressBar" },
-            _react2.default.createElement(
-              "label",
-              null,
-              "Processing your requests, please wait... ",
-              this.state.percentage
-            ),
+            this.renderCustomTitle(),
+            this.renderProcessingRequest(),
             _react2.default.createElement("br", null),
             _react2.default.createElement(
               "label",
@@ -198,16 +200,8 @@ var Progress = function (_Component) {
               " processed"
             ),
             _react2.default.createElement("br", null),
-            _react2.default.createElement(
-              "label",
-              null,
-              "Time remaining: ",
-              this.state.estimatedLeft
-            ),
-            _react2.default.createElement("br", null),
-            _react2.default.createElement("progress", { max: "100", value: this.state.percentageNumber }),
-            " ",
-            this.state.percentage
+            this.renderTimeRemaining(),
+            this.renderProgressBar()
           );
         }
       } else {
@@ -215,23 +209,9 @@ var Progress = function (_Component) {
       }
     }
   }, {
-    key: "renderCompactMode",
-    value: function renderCompactMode() {
-      return _react2.default.createElement(
-        "div",
-        null,
-        _react2.default.createElement("progress", { max: "100", value: this.state.percentageNumber }),
-        _react2.default.createElement(
-          "label",
-          null,
-          this.state.percentage
-        )
-      );
-    }
-  }, {
     key: "renderTimeRemaining",
     value: function renderTimeRemaining() {
-      if (this.props.showTimeRemaining) {
+      if (this.props.hideTimeRemaining !== undefined) {
         return _react2.default.createElement(
           "label",
           null,
@@ -239,13 +219,35 @@ var Progress = function (_Component) {
           this.state.estimatedLeft
         );
       } else {
-        return _react2.default.createElement("div", null);
+        return null;
+      }
+    }
+  }, {
+    key: "renderProgressBar",
+    value: function renderProgressBar() {
+      if (this.props.hideProgressBar === undefined) {
+        if (this.props.useSpinner !== undefined) {
+          return _react2.default.createElement("div", { className: "loader" });
+        } else {
+          return _react2.default.createElement(
+            "div",
+            null,
+            _react2.default.createElement("progress", { max: "100", value: this.state.percentageNumber }),
+            _react2.default.createElement(
+              "label",
+              null,
+              this.state.percentage
+            )
+          );
+        }
+      } else {
+        return null;
       }
     }
   }, {
     key: "renderProcessingRequest",
     value: function renderProcessingRequest() {
-      if (this.props.showProcessingRequest) {
+      if (this.props.hideProcessingRequest === undefined) {
         return _react2.default.createElement(
           "label",
           null,
@@ -253,7 +255,21 @@ var Progress = function (_Component) {
           this.state.percentage
         );
       } else {
-        return _react2.default.createElement("div", null);
+        return null;
+      }
+    }
+  }, {
+    key: "renderTimeRemaining",
+    value: function renderTimeRemaining() {
+      if (this.props.hideTimeRemaining === undefined) {
+        return _react2.default.createElement(
+          "label",
+          null,
+          "Time remaining: ",
+          this.state.estimatedLeft
+        );
+      } else {
+        return null;
       }
     }
   }, {
@@ -266,7 +282,7 @@ var Progress = function (_Component) {
           this.state.title
         );
       } else {
-        return _react2.default.createElement("div", null);
+        return null;
       }
     }
   }, {
@@ -355,7 +371,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "progress {\n\theight: 14px;\n\t/* Important Thing */\n\t-webkit-appearance: none;\n\tborder: none;\n  margin-right: 5px;\n\n\n  background-image:\n\t   -webkit-linear-gradient(-45deg,\n\t                           transparent 33%, rgba(0, 0, 0, .1) 33%,\n\t                           rgba(0,0, 0, .1) 66%, transparent 66%),\n\t   -webkit-linear-gradient(top,\n\t                           rgba(255, 255, 255, .25),\n\t                           rgba(0, 0, 0, .25)),\n\t   -webkit-linear-gradient(left, #38bcc3, #38bcc3);\n}\n\nprogress::-webkit-progress-bar {\n  background-color: #eee;\n  border-radius: 2px;\n  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;\n}\n\nprogress[value]::-webkit-progress-bar {\n  background-color: #eee;\n  border-radius: 2px;\n  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;\n}\n\nprogress[value]::-webkit-progress-value {\n  background-image:\n\t   -webkit-linear-gradient(-45deg,\n\t                           transparent 33%, rgba(0, 0, 0, .1) 33%,\n\t                           rgba(0,0, 0, .1) 66%, transparent 66%),\n\t   -webkit-linear-gradient(top,\n\t                           rgba(255, 255, 255, .25),\n\t                           rgba(0, 0, 0, .25)),\n\t   -webkit-linear-gradient(left, #38bcc3, #38bcc3);\n\n\n    border-radius: 2px;\n    background-size: 35px 20px, 100% 100%, 100% 100%;\n}\n\n\n/* All good till now. Now we'll style the background */\n\n\n/* Now the value part */\nprogress::-webkit-progress-value {\n  background-image:\n\t   -webkit-linear-gradient(-45deg,\n\t                           transparent 33%, rgba(0, 0, 0, .1) 33%,\n\t                           rgba(0,0, 0, .1) 66%, transparent 66%),\n\t   -webkit-linear-gradient(top,\n\t                           rgba(255, 255, 255, .25),\n\t                           rgba(0, 0, 0, .25)),\n\t   -webkit-linear-gradient(left, #38bcc3, #38bcc3);\n\n\n    border-radius: 2px;\n    background-size: 35px 20px, 100% 100%, 100% 100%;\n}\n", ""]);
+exports.push([module.i, "progress {\n\theight: 14px;\n\t/* Important Thing */\n\t-webkit-appearance: none;\n\tborder: none;\n  margin-right: 5px;\n\n\n  background-image:\n\t   -webkit-linear-gradient(-45deg,\n\t                           transparent 33%, rgba(0, 0, 0, .1) 33%,\n\t                           rgba(0,0, 0, .1) 66%, transparent 66%),\n\t   -webkit-linear-gradient(top,\n\t                           rgba(255, 255, 255, .25),\n\t                           rgba(0, 0, 0, .25)),\n\t   -webkit-linear-gradient(left, #38bcc3, #38bcc3);\n}\n\nprogress::-webkit-progress-bar {\n  background-color: #eee;\n  border-radius: 2px;\n  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;\n}\n\nprogress[value]::-webkit-progress-bar {\n  background-color: #eee;\n  border-radius: 2px;\n  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;\n}\n\nprogress[value]::-webkit-progress-value {\n  background-image:\n\t   -webkit-linear-gradient(-45deg,\n\t                           transparent 33%, rgba(0, 0, 0, .1) 33%,\n\t                           rgba(0,0, 0, .1) 66%, transparent 66%),\n\t   -webkit-linear-gradient(top,\n\t                           rgba(255, 255, 255, .25),\n\t                           rgba(0, 0, 0, .25)),\n\t   -webkit-linear-gradient(left, #38bcc3, #38bcc3);\n\n\n    border-radius: 2px;\n    background-size: 35px 20px, 100% 100%, 100% 100%;\n}\n\n/* Now the value part */\nprogress::-webkit-progress-value {\n  background-image:\n\t   -webkit-linear-gradient(-45deg,\n\t                           transparent 33%, rgba(0, 0, 0, .1) 33%,\n\t                           rgba(0,0, 0, .1) 66%, transparent 66%),\n\t   -webkit-linear-gradient(top,\n\t                           rgba(255, 255, 255, .25),\n\t                           rgba(0, 0, 0, .25)),\n\t   -webkit-linear-gradient(left, #38bcc3, #38bcc3);\n\n\n    border-radius: 2px;\n    background-size: 35px 20px, 100% 100%, 100% 100%;\n}\n\n\n.loader {\n  border: 3px solid #f3f3f3;\n  border-top: 3px solid #3498db;\n  border-radius: 50%;\n  width: 20px;\n  height: 20px;\n  -webkit-animation: spin 1s linear infinite;\n  animation: spin 1s linear infinite;\n  float: left;\n  margin: 0 5px;\n}\n\n@keyframes spin {\n    0% { transform: rotate(0deg); }\n    100% { transform: rotate(360deg); }\n}\n\n\n\n", ""]);
 
 // exports
 
