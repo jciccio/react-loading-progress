@@ -1,7 +1,7 @@
 {
   "name": "react-js-loading-progress-bar",
-  "version": "0.1.7",
-  "description": "React JS loading progress component, shows estimated time left (if several requests need to be made) and progress bar with percentage.",
+  "version": "0.2.1",
+  "description": "React JS loading progress (bar and throbber) component that shows estimated time left (if several requests need to be made) and progress bar with percentage.",
   "main": "build/index.js",
   "peerDependencies": {
     "react": "^16.0.0"
@@ -46,7 +46,8 @@
     "progress meter",
     "loading indicator",
     "progress",
-    "bar"
+    "bar",
+    "throbber"
   ],
   "license": "MIT",
   "homepage": "https://github.com/jciccio/react-loading-progress"

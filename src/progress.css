@@ -68,8 +68,8 @@ progress::-webkit-progress-value {
   height: 20px;
   -webkit-animation: spin 1s linear infinite;
   animation: spin 1s linear infinite;
-  float: left;
   margin: 0 5px;
+  display: inline-flex;
 }
 
 @keyframes spin {

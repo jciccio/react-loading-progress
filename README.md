@@ -46,6 +46,9 @@ Props available:
 | hideTimeRemaining | present?   |N  |   Render time remaining in full mode |
 | hideProgressBar | present?   |N  |   Hide entirely the progress bar or spinner |
 | hideQtyProcessed | present?   |N  |  Hide the amount of items processed |
+| useSpinner | present?   |N  |  changes the progress bar with a spinner (throbber) |
+| visualOnly | present?   |N  |  Shows only the progress bar or throbber (depending on the mode you are using) |
+
 
 For example:
 ```javascript
@@ -54,6 +57,17 @@ For example:
   total={this.state.total}
   current={this.state.current}
   showCompact       
+/>
+```
+
+To use the spinner instead of the progress bar you can use the useSpinner prop as follows:
+
+```javascript
+<LoadingProgress
+  useSpinner
+  active={true}
+  total={this.state.total}
+  current={this.state.current}
 />
 ```
 

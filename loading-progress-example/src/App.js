@@ -57,8 +57,27 @@ class App extends Component {
             active={true}
             total={this.state.total}
             current={this.state.current}
-            
-            
+          />
+        </div>
+
+        <h1> Visual only Throbber mode: </h1>
+        <div>
+          <LoadingProgress
+            useSpinner
+            visualOnly
+            active={true}
+            total={this.state.total}
+            current={this.state.current}
+          />
+        </div>
+
+        <h1> Visual only Bar mode: </h1>
+        <div>
+          <LoadingProgress
+            visualOnly
+            active={true}
+            total={this.state.total}
+            current={this.state.current}
           />
         </div>
 

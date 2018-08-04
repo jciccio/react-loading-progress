@@ -88,14 +88,17 @@ class Progress extends Component {
       else{
         return (
           <div className="progressBar">
+            
+
             {this.renderCustomTitle()}
             {this.renderProcessingRequest()}
-            <br />
+            
             {this.renderQtyProcessed()}
-            <br />
-            {this.renderTimeRemaining()}
             
             {this.renderProgressBar()}
+            {this.renderTimeRemaining()}
+            
+            
           </div>
         );
       }
@@ -105,7 +108,7 @@ class Progress extends Component {
   }
 
   renderQtyProcessed(){
-     if (this.props.hideQtyProcessed !== undefined) {
+     if (this.props.hideQtyProcessed !== undefined && this.props.visualOnly === undefined) {
       return (
           <label>
             {this.props.current} out of {this.props.total} processed
@@ -117,7 +120,7 @@ class Progress extends Component {
   }
 
   renderTimeRemaining() {
-    if (this.props.hideTimeRemaining !== undefined) {
+    if (this.props.hideTimeRemaining !== undefined && !this.props.visualOnly) {
       return <label>Time remaining: {this.state.estimatedLeft}</label>;
     } else {
       return null;
@@ -143,7 +146,7 @@ class Progress extends Component {
   }
 
   renderProcessingRequest() {
-    if (this.props.hideProcessingRequest === undefined) {
+    if (this.props.hideProcessingRequest === undefined && this.props.visualOnly === undefined) {
       return (
         <label>
           Processing your requests, please wait... {this.state.percentage}
@@ -155,7 +158,7 @@ class Progress extends Component {
   }
 
   renderTimeRemaining() {
-    if (this.props.hideTimeRemaining === undefined) {
+    if (this.props.hideTimeRemaining === undefined && this.props.visualOnly === undefined) {
       return <label>Time remaining: {this.state.estimatedLeft}</label>;
     } else {
       return null;

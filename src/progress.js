@@ -77,7 +77,7 @@ class Progress extends Component {
   render() {
     if (this.props.active) {
       return (
-        <div className="progressBar"><label>HOLA!!!</label>
+        <div className="progressBar">
           {this.renderCustomTitle()}
           {this.renderProcessingRequest()}
           <br />
@@ -104,7 +104,7 @@ class Progress extends Component {
       else{
         return (
           <div>
-            <progress max="100" value={this.state.percentageNumber} />
+            <progress value={this.state.percentageNumber} />
             <label>{this.state.percentage}</label>
           </div>
         );
