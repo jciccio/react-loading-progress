@@ -16,6 +16,13 @@ How it looks:
 
 It has two options the compact mode, that shows the progress bar, percentage and time left in a single line, and the full mode which outputs in different lines how much items has processed, the current percentage, the progress bar and the estimated time to complete the current operation.
 
+
+You can now opt for two more options:
+1. Having a spinner instead of a progress bar 
+2. Showing just the spinner and progress bar without any text
+
+![alt text](loading2.png "Loading bar example")
+
 # Installation
 
 Install it from npm and include it in your React build process (using Webpack, Browserify, etc).
