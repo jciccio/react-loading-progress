@@ -5,7 +5,7 @@
 
 # React-loading-progress
 
-React JS Progress / Loading bar
+Simple react JS Progress / Loading bar for multiple files
 
 # Description
 

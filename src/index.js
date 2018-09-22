@@ -1,11 +1,11 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 
 import "./progress.css";
 
 /**
  * Progress Bar Component
  *
- * @version 0.1.8
  * @author [Jose Antonio Ciccio](https://github.com/jciccio)
  */
 class Progress extends Component {
@@ -182,5 +182,22 @@ class Progress extends Component {
     );   
   }
 }
+
+
+
+
+Progress.propTypes = {
+  total: PropTypes.number.isRequired,
+  active:   PropTypes.bool.isRequired,
+  current: PropTypes.number.isRequired,
+  showCompact:PropTypes.bool,
+  title:PropTypes.string,
+  hideProcessingRequest:PropTypes.bool,
+  hideTimeRemaining:PropTypes.bool,
+  hideProgressBar:PropTypes.bool,
+  hideQtyProcessed:PropTypes.bool,
+  useSpinner:PropTypes.bool,
+  visualOnly:PropTypes.bool
+};
 
 export default Progress;
