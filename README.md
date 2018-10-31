@@ -80,4 +80,4 @@ To use the spinner instead of the progress bar you can use the useSpinner prop a
 
 # License 
 
-Licensed under the MIT License.
+Licensed under the MIT License © [jciccio](https://www.npmjs.com/~jciccio)
