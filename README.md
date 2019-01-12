@@ -23,6 +23,9 @@ You can now opt for two more options:
 
 ![alt text](loading2.png "Loading bar example")
 
+**How to thank me?**
+Just click on ⭐️ button :)
+
 # Installation
 
 Install it from npm and include it in your React build process (using Webpack, Browserify, etc).
