@@ -80,6 +80,11 @@ To use the spinner instead of the progress bar you can use the useSpinner prop a
   current={this.state.current}
 />
 ```
+# Changelog
+
+### v0.3.0
+* Dependencies updated
+* Overall package size optimized
 
 # License 
 
